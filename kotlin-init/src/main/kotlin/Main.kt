@@ -1,7 +1,9 @@
+import person.Person
 import java.lang.IllegalArgumentException
 
 fun main(args: Array<String>) {
-
+    val person = Person("개발자")
+    startWithA1(person.name)
 }
 
 
@@ -18,6 +20,11 @@ fun startWithA2(str: String?):Boolean{
 // null이 들어갈 수 있는 함수. safe call과 리턴타입
 fun startWithA3(str: String?):Boolean?{
     return str?.startsWith("A")
+}
+
+// str이 절대로 null이 아닐 때
+fun startWithA4(str: String?): Boolean{
+    return str!!.startsWith("A")
 }
 
 
