@@ -1,4 +1,5 @@
 import entity.Money
+import function.parseIntOrThrow
 import java.lang.IllegalArgumentException
 
 fun main(args: Array<String>) {
@@ -14,6 +15,8 @@ fun main(args: Array<String>) {
     for (number in numbers){
         println(number)
     }
+
+    parseIntOrThrow("wne")
 }
 
 fun validateScore(score: Int){
