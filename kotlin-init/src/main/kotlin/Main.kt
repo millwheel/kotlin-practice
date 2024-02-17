@@ -2,10 +2,11 @@ import entity.Money
 import java.lang.IllegalArgumentException
 
 fun main(args: Array<String>) {
-    val money1 = Money(10000)
-    val money2 = Money(10000)
+    val money1 = Money(1000)
+    val money2 = Money(1000)
 
-    print(money1 === money2)
+    println(money1 === money2)
+    println(money1 + money2)
 }
 
 
