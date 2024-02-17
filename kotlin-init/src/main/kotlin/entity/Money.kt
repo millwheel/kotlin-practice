@@ -1,9 +1,9 @@
 package entity
 
 data class Money(
-    val amout:Long
+    val amount:Long
 ) {
     operator fun plus(other: Money): Money {
-        return Money(this.amout + other.amout)
+        return Money(this.amount + other.amount)
     }
 }

@@ -7,6 +7,15 @@ fun main(args: Array<String>) {
 
     println(money1 === money2)
     println(money1 + money2)
+
+    validateScore(10)
+
+}
+
+fun validateScore(score: Int){
+    if (score in 0..20){
+        println("This is valid score = ${score}")
+    }
 }
 
 
