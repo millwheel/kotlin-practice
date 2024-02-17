@@ -1,4 +1,4 @@
-package entity;
+package koclass;
 
 import org.jetbrains.annotations.NotNull;
 

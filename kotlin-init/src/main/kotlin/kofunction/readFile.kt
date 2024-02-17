@@ -1,4 +1,4 @@
-package function
+package kofunction
 
 import java.io.BufferedReader
 import java.io.File

@@ -1,6 +1,5 @@
-package function
+package kofunction
 
-import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 
 fun parseIntOrThrow(str: String): Int?{
