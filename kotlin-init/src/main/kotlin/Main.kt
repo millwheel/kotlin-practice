@@ -1,4 +1,5 @@
 import koclass.Money
+import koclass.Person
 import kofunction.parseIntOrThrow
 import java.lang.IllegalArgumentException
 
@@ -17,6 +18,8 @@ fun main(args: Array<String>) {
     }
 
     parseIntOrThrow("wne")
+
+    val person = Person("김말이", 100)
 }
 
 fun validateScore(score: Int){
