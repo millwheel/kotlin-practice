@@ -1,7 +1,6 @@
-package person;
+package entity;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class Person {
 

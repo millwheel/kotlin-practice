@@ -1,9 +1,11 @@
-import person.Person
+import entity.Money
 import java.lang.IllegalArgumentException
 
 fun main(args: Array<String>) {
-    val person = Person("개발자")
-    startWithA1(person.name)
+    val money1 = Money(10000)
+    val money2 = Money(10000)
+
+    print(money1 === money2)
 }
 
 
