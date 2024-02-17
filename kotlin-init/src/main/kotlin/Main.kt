@@ -10,6 +10,10 @@ fun main(args: Array<String>) {
 
     validateScore(10)
 
+    val numbers = listOf(1, 2, 3) // Arrays.asList(1, 2, 3); 과 동일하다.
+    for (number in numbers){
+        println(number)
+    }
 }
 
 fun validateScore(score: Int){
