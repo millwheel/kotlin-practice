@@ -16,6 +16,8 @@ fun lambda(){
     isApple.invoke(fruits[0])
 
     filterFruits(fruits, isApple) // 람다 함수를 값처럼 사용하기
+    filterFruits(fruits) { fruit -> fruit.name == "수박" } // 바로 람다 함수 넣기. 람다 함수는 소괄호 밖으로 빼낼 수 있다.
+    filterFruits(fruits) {it.name == "수박"} // 위와 완전 동일한 코드. it으로 람다식을 대체할 수 있음
 }
 
 class Fruit(
