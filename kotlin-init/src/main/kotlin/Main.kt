@@ -1,5 +1,9 @@
+import javaclass.Car
+import javaclass.CarType
 import koclass.Money
 import koclass.Person
+import kofunction.arrayV1
+import kofunction.arrayV2
 import kofunction.parseIntOrThrow
 import kofunction.validateScore
 
@@ -7,10 +11,8 @@ fun main(args: Array<String>) {
     val money1 = Money(1000)
     val money2 = Money(1000)
 
-    println(money1 === money2)
-    println(money1 + money2)
-
-    val person = Person("김말이", 100)
+    println(money1 === money2) // 동일성 체크
+    println(money1 + money2) // operator function 사용
 
     validateScore(10)
     parseIntOrThrow("wne")
@@ -20,6 +22,14 @@ fun main(args: Array<String>) {
         println(number)
     }
 
+    arrayV1()
+    arrayV2()
+
+    // java code 사용하기
+    val car = Car("k5-2023-01", "k5", CarType.SEDAN)
+    print(car.id + " ")
+    print(car.modelName + " ")
+    println(car.carType)
 }
 
 
