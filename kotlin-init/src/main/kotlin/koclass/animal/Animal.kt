@@ -1,4 +1,4 @@
-package koclass
+package koclass.animal
 
 abstract class Animal (
     protected val species: String,

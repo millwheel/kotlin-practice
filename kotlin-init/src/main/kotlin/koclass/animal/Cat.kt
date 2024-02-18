@@ -1,4 +1,4 @@
-package koclass
+package koclass.animal
 
 class Cat(
     species: String
