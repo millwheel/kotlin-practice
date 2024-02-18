@@ -1,11 +1,7 @@
 import javaclass.Car
 import javaclass.CarType
 import koclass.Money
-import koclass.Person
-import kofunction.arrayV1
-import kofunction.arrayV2
-import kofunction.parseIntOrThrow
-import kofunction.validateScore
+import kofunction.*
 
 fun main(args: Array<String>) {
     val money1 = Money(1000)
@@ -30,6 +26,8 @@ fun main(args: Array<String>) {
     print(car.id + " ")
     print(car.modelName + " ")
     println(car.carType)
+
+    collection()
 }
 
 
