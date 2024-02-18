@@ -1,7 +1,7 @@
 import koclass.Money
 import koclass.Person
 import kofunction.parseIntOrThrow
-import java.lang.IllegalArgumentException
+import kofunction.validateScore
 
 fun main(args: Array<String>) {
     val money1 = Money(1000)
@@ -10,54 +10,21 @@ fun main(args: Array<String>) {
     println(money1 === money2)
     println(money1 + money2)
 
+    val person = Person("김말이", 100)
+
     validateScore(10)
+    parseIntOrThrow("wne")
 
     val numbers = listOf(1, 2, 3) // Arrays.asList(1, 2, 3); 과 동일하다.
     for (number in numbers){
         println(number)
     }
 
-    parseIntOrThrow("wne")
-
-    val person = Person("김말이", 100)
-}
-
-fun validateScore(score: Int){
-    if (score in 0..20){
-        println("This is valid score = ${score}")
-    }
-}
-
-// case 문. 어떠한 expression도 들어갈 수 있다.
-// 코틀린에서 하나의 문장은 statement가 아니라 expression이다.
-fun getGradeWithSwitch(score: Int):String{
-    return when (score){
-        in 90..99 -> "A"
-        in 80..89 -> "B"
-        in 70..79 -> "C"
-        else -> "D"
-    }
 }
 
 
-// null이 들어갈 수 없는 함수
-fun startWithA1(str:String): Boolean{
-    return str.startsWith("A");
-}
 
-// null이 들어갈 수 있는 함수. safe call과 Elvis 연산자
-fun startWithA2(str: String?):Boolean{
-    return str?.startsWith("A") ?: throw IllegalArgumentException("null이 들어왔습니다.")
-}
 
-// null이 들어갈 수 있는 함수. safe call과 리턴타입
-fun startWithA3(str: String?):Boolean?{
-    return str?.startsWith("A")
-}
 
-// str이 절대로 null이 아닐 때
-fun startWithA4(str: String?): Boolean{
-    return str!!.startsWith("A")
-}
 
 
