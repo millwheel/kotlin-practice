@@ -11,6 +11,9 @@ fun lambda(){
     }
 
     val isApple2 = {fruit: Fruit -> fruit.name == "사과"}
+
+    isApple(fruits[0])
+    isApple.invoke(fruits[0])
 }
 
 class Fruit(
