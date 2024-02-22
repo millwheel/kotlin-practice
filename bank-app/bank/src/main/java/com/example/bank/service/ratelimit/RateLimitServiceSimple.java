@@ -9,17 +9,15 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimitServiceSimple implements RateLimitService {
 
     private final ConcurrentHashMap<String, RequestCounter> requestCounts = new ConcurrentHashMap<>();
-    private final int MAX_REQUESTS = 100;
-    private final Duration WINDOW_DURATION = Duration.ofMinutes(1);
 
     public boolean isAllowed(String key){
-        RequestCounter requestCounter = requestCounts.computeIfAbsent(key, k -> new RequestCounter(WINDOW_DURATION));
+        RequestCounter requestCounter = requestCounts.computeIfAbsent(key, k -> new RequestCounter(RateLimitConstant.WINDOW_DURATION));
 
         requestCounter.incrementRequestCount();
+        int MAX_REQUESTS = RateLimitConstant.MAX_REQUESTS;
         if (requestCounter.isLimitExceeded(MAX_REQUESTS)) {
                 return false;
         }
-
         return true;
     }
 }

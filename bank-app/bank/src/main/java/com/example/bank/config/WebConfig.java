@@ -1,7 +1,7 @@
 package com.example.bank.config;
 
 import com.example.bank.interceptor.RateLimitInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.bank.service.ratelimit.RateLimitService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -9,15 +9,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    private final RateLimitInterceptor rateLimitInterceptor;
+    private final RateLimitService rateLimitService;
 
-    @Autowired
-    public WebConfig(RateLimitInterceptor rateLimitInterceptor) {
-        this.rateLimitInterceptor = rateLimitInterceptor;
+    public WebConfig(RateLimitService rateLimitService) {
+        this.rateLimitService = rateLimitService;
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(rateLimitInterceptor);
+        registry.addInterceptor(new RateLimitInterceptor(rateLimitService));
     }
 }
