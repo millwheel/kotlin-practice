@@ -25,7 +25,7 @@ public class RequestCounter {
         if (isWindowExpired()) {
             resetWindow();
         }
-        return requestCount >= maxRequests;
+        return requestCount > maxRequests;
     }
 
     private void resetWindow() {

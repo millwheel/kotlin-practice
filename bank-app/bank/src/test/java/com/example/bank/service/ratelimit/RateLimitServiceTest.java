@@ -18,13 +18,26 @@ class RateLimitServiceTest {
 
     @DisplayName("10회 미만 요청")
     @Test
-    void under10request() {
+    void under10requests() {
         String ipAddress = "101.103.98.125";
         boolean[] result = new boolean[10];
         for(int i = 0; i < 10; i++){
             result[i] = rateLimitService.isAllowed(ipAddress);
         }
         Assertions.assertThat(result).containsOnly(true);
+    }
+
+    @DisplayName("10회 이상 요청")
+    @Test
+    void over10requests() {
+        String ipAddress = "101.103.98.125";
+        boolean[] result = new boolean[11];
+        for(int i = 0; i < 11; i++){
+            result[i] = rateLimitService.isAllowed(ipAddress);
+        }
+        boolean[] answer = {true, true, true, true, true, true, true, true, true, true, false};
+
+        Assertions.assertThat(result).containsExactly(answer);
     }
 
 }
