@@ -12,11 +12,10 @@ public class RateLimitServiceSimple implements RateLimitService {
     private final ConcurrentHashMap<String, RequestSimpleCounter> requestCounts = new ConcurrentHashMap<>();
 
     public boolean isAllowed(String key){
-        RequestSimpleCounter requestSimpleCounter = requestCounts.computeIfAbsent(key, k -> new RequestSimpleCounter(RateLimitConstant.WINDOW_DURATION));
+        RequestSimpleCounter requestSimpleCounter = requestCounts.computeIfAbsent(key, k -> new RequestSimpleCounter());
 
         requestSimpleCounter.incrementRequestCount();
-        int MAX_REQUESTS = RateLimitConstant.MAX_REQUESTS;
-        if (requestSimpleCounter.isLimitExceeded(MAX_REQUESTS)) {
+        if (requestSimpleCounter.isLimitExceeded()) {
                 return false;
         }
         return true;

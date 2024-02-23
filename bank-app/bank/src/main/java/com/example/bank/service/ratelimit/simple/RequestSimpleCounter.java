@@ -1,5 +1,7 @@
 package com.example.bank.service.ratelimit.simple;
 
+import com.example.bank.service.ratelimit.RateLimitConstant;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 
@@ -7,11 +9,13 @@ public class RequestSimpleCounter {
     private int requestCount;
     private LocalDateTime windowStart;
     private final Duration windowDuration;
+    private final int maxRequests;
 
-    public RequestSimpleCounter(Duration duration) {
+    public RequestSimpleCounter() {
         this.requestCount = 0;
         this.windowStart = LocalDateTime.now();
-        this.windowDuration = duration;
+        this.windowDuration = RateLimitConstant.WINDOW_DURATION;
+        this.maxRequests = RateLimitConstant.MAX_REQUESTS;
     }
 
     public synchronized void incrementRequestCount(){
@@ -21,7 +25,7 @@ public class RequestSimpleCounter {
         requestCount++;
     }
 
-    public synchronized boolean isLimitExceeded(int maxRequests) {
+    public synchronized boolean isLimitExceeded() {
         if (isWindowExpired()) {
             resetWindow();
         }
