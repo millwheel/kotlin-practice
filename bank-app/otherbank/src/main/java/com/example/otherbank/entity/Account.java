@@ -5,9 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
 
 import java.util.UUID;
 
+@Getter
 @Entity
 public class Account extends BaseTimeEntity {
     @Id
@@ -17,4 +19,9 @@ public class Account extends BaseTimeEntity {
     private String accountName;
     private String userId;
 
+    public Account(String accountNumber, String accountName, String userId) {
+        this.accountNumber = accountNumber;
+        this.accountName = accountName;
+        this.userId = userId;
+    }
 }
