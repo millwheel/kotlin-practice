@@ -21,7 +21,7 @@ class AccountEventServiceTest {
     @Test
     public void createAndGetAccount(){
         String userId = UUID.randomUUID().toString();
-        Account account1 = accountEventService.createAccount(userId);
+        Account account1 = accountEventService.createAccount("133-1331-1223", userId);
         Account account2 = accountEventService.getAccount(account1.getId().toString());
 
         Assertions.assertThat(account1.getId()).isEqualTo(account2.getId());

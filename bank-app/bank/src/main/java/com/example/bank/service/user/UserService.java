@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class UserService {
 
-    private static final ConcurrentHashMap<UUID, User> userDB = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<UUID, User> userDB = new ConcurrentHashMap<>();
 
     public User createUser(String username, String password, String phone, String address){
         if(userDB.values().stream().anyMatch(user -> Objects.equals(user.getUsername(), username))){

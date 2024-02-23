@@ -18,7 +18,7 @@ public class AccountController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String createAccount(@RequestBody AccountCreateRequestDto accountCreateRequestDto){
-        Account account = accountEventService.createAccount(accountCreateRequestDto.getUserId());
+        Account account = accountEventService.createAccount(accountCreateRequestDto.getAccountNumber(), accountCreateRequestDto.getUserId());
         return account.getId().toString();
     }
 
