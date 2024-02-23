@@ -1,6 +1,5 @@
 package com.example.otherbank.dto
 
-import java.time.OffsetDateTime
 
 
 data class AccountCreateRequestDto (
