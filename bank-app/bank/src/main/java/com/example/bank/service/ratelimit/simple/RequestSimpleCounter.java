@@ -1,14 +1,14 @@
-package com.example.bank.service.ratelimit;
+package com.example.bank.service.ratelimit.simple;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class RequestCounter {
+public class RequestSimpleCounter {
     private int requestCount;
     private LocalDateTime windowStart;
     private final Duration windowDuration;
 
-    public RequestCounter(Duration duration) {
+    public RequestSimpleCounter(Duration duration) {
         this.requestCount = 0;
         this.windowStart = LocalDateTime.now();
         this.windowDuration = duration;
