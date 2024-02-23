@@ -1,4 +1,4 @@
-package com.example.bank.entity.audit;
+package com.example.bank.entity.base;
 
 import lombok.Getter;
 

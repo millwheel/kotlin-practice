@@ -1,0 +1,31 @@
+package com.example.bank.controller;
+
+import com.example.bank.dto.AccountCreateRequestDto;
+import com.example.bank.dto.AccountResponseDto;
+import com.example.bank.entity.Account;
+import com.example.bank.service.account.AccountEventService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/account")
+@RequiredArgsConstructor
+public class AccountController {
+
+    private final AccountEventService accountEventService;
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createAccount(@RequestBody AccountCreateRequestDto accountCreateRequestDto){
+        accountEventService.createAccount(accountCreateRequestDto.getUserId());
+    }
+
+
+    @GetMapping("/{accountId}")
+    @ResponseStatus(HttpStatus.OK)
+    public AccountResponseDto getAccount(@PathVariable String accountId){
+        Account account = accountEventService.getAccount(accountId);
+        return new AccountResponseDto(account);
+    }
+}

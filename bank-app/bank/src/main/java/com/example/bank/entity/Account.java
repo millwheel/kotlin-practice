@@ -1,6 +1,6 @@
 package com.example.bank.entity;
 
-import com.example.bank.entity.audit.BaseTimeEntity;
+import com.example.bank.entity.base.BaseTimeEntity;
 import lombok.Getter;
 
 import java.util.UUID;
