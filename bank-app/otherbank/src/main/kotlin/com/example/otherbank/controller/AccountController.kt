@@ -21,7 +21,7 @@ class AccountController(val accountService: AccountService) {
             createRequestDto.accountName,
             createRequestDto.userName
         )
-        log.info { "created account number: ${createAccount.accountName}" }
+        log.info { "created account number: ${createAccount.accountNumber}" }
         log.info { "created account name: ${createAccount.accountName}" }
     }
 
