@@ -7,6 +7,7 @@ import com.example.bank.dto.UserResponseDto;
 import com.example.bank.entity.Account;
 import com.example.bank.entity.User;
 import com.example.bank.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String createAccount(@RequestBody UserCreateRequestDto userCreateRequestDto){
+    public String createAccount(@RequestBody @Valid UserCreateRequestDto userCreateRequestDto){
         User user = userService.createUser(userCreateRequestDto.getUsername(),
                 userCreateRequestDto.getPassword(),
                 userCreateRequestDto.getPhone(),
