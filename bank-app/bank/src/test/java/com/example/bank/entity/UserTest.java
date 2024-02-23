@@ -12,12 +12,11 @@ class UserTest {
     @DisplayName("사용자 정보 변경 테스트")
     @Test
     public void changeUserName() throws InterruptedException {
-        User user = new User("김민성", "010-1234-5678", "경기도 수원시");
+        User user = new User("sion", "010-1234-5678", "경기도 수원시", "asdf");
         OffsetDateTime firstTime = user.getUpdatedAt();
         Thread.sleep(1000);
-        user.updateUserInformation("김민국", null, null);
+        user.updateUserInformation( "010-2345-2345", null);
 
-        assertThat(user.getName()).isEqualTo("김민국");
         assertThat(user.getUpdatedAt()).isBefore(firstTime);
     }
 

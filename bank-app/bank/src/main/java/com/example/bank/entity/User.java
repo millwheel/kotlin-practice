@@ -8,19 +8,20 @@ import java.util.UUID;
 @Getter
 public class User extends BaseTimeEntity {
     private final UUID id;
-    private String name;
+    private String username;
+    private String password;
     private String phone;
     private String address;
 
-    public User(String name, String phone, String address) {
+    public User(String username, String phone, String address, String password) {
         this.id = UUID.randomUUID();
-        this.name = name;
+        this.username = username;
         this.phone = phone;
         this.address = address;
+        this.password = password;
     }
 
-    public void updateUserInformation(String name, String phone, String address){
-        if (name != null) this.name = name;
+    public void updateUserInformation(String phone, String address){
         if (phone != null) this.phone = phone;
         if (address != null) this.address = address;
         updateDateTime();
