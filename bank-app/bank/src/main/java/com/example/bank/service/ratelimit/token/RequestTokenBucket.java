@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 
 public class RequestTokenBucket {
 
-    private int numberOfTokenAvailable;
+
     private LocalDateTime lastRefillTime;
     private LocalDateTime nextRefillTime;
     private final int maxRequestsPerWindow;
     private final Duration windowSize;
     private final int maxBucketSize;
+    private int numberOfTokenAvailable;
 
     public RequestTokenBucket() {
         this.maxRequestsPerWindow = RateLimitConstant.MAX_REQUESTS;

@@ -30,7 +30,7 @@ class RateLimitServiceTest {
     @DisplayName("10회 이상 요청")
     @Test
     void over10requests() {
-        String ipAddress = "101.103.98.125";
+        String ipAddress = "101.103.98.128";
         boolean[] result = new boolean[11];
         for(int i = 0; i < 11; i++){
             result[i] = rateLimitService.isAllowed(ipAddress);
