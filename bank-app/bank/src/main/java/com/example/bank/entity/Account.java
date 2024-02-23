@@ -10,10 +10,10 @@ import java.util.UUID;
 public class Account extends BaseTimeEntity {
 
     private final UUID id;
-    private final long userid;
+    private final UUID userid;
     private String name;
 
-    public Account( long userid, String name) {
+    public Account(UUID userid, String name) {
         this.id = UUID.randomUUID();
         this.userid = userid;
         this.name = name;
