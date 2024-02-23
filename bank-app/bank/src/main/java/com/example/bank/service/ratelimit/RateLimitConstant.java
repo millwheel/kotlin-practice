@@ -6,6 +6,6 @@ public class RateLimitConstant {
 
     public static final int MAX_REQUESTS = 10;
     public static final Duration WINDOW_DURATION = Duration.ofSeconds(10);
-    public static final int MAX_BUCKET_SIZE = 10;
+    public static final int MAX_BUCKET_SIZE = 20;
 
 }
